@@ -1,1 +1,87 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+    box-sizing: border-box;
+    font-family: 'Overpass', sans-serif;
+    font-size: 62.5%; 
+}
+
+/* Basic reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+*::before, *::after, button {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 3.2rem;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+li {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+label {
+    font-size: 1.6rem;
+}
+
+select, option {
+    font-size: 1.2rem !important;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+p {
+    font-size: 1.6rem;
+}
+
+button:hover, button:focus {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+input:active, input:focus {
+    outline: none;
+    border: 2px solid rgba(46,152,81,.5);
+    opacity: 1;
+}
+
+@media only screen and (max-width: 1000px) {
+    html {
+      font-size: 56.25%; /* 9px */
+    } 
+}
+
+@media only screen and (max-width: 600px) {
+    html {
+      font-size: 50%; /* 8px */
+    } 
+} 
+
+@media only screen and (max-width: 400px) {
+    html {
+      font-size: 46.875%; /* 7.5px */
+    } 
+} 
+
+@media only screen and (max-width: 600px) {
+
+    a, p {
+        font-size: 1.8rem;
+    }
+} 
