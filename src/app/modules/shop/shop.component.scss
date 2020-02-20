@@ -1,0 +1,27 @@
+.shop__container {
+    background-image: url('/assets/bg.jpeg');
+    background-size: cover; 
+    min-height: calc(100vh - 20rem);
+}
+
+.shop__content {
+    padding-top: 2.5rem;
+    margin: 0 auto;
+    
+    width: 90%;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.shop__left {
+    width: 60%;
+    height: 500px;
+    background-color: white;
+}
+
+.shop__right {
+    width: 100%;
+    height: 500px;
+    background-color: red;
+}

@@ -1,23 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { CoreModule } from './core/core.module';
+import { AppRoutingModule } from './app-routing.module';
 import { AdminModule } from './modules/admin/admin.module';
 import { ShopModule } from './modules/shop/shop.module';
 import { CartModule } from './modules/cart/cart.module';
 
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent, 
+    HeaderComponent
   ],
   imports: [
-    CoreModule,
     BrowserModule,
+    AppRoutingModule,
     AdminModule,
     ShopModule,
-    CartModule,
+    CartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
