@@ -1,0 +1,27 @@
+<div>
+    <div class="title__container">
+        <h2 class="title__directory">Shop</h2>
+        <div class="title__route">
+            <a class="title__link" href="#">HOME</a>
+            <p>&nbsp;/&nbsp;</p>
+            <a class="title__link" href="#">SHOP</a>
+        </div>
+    </div>
+
+    <div class="sorting__container">
+        <label class="sorting__label" for="sorting">Showing 1-10 of 23 result</label>
+        <app-option></app-option>
+    </div>
+    
+    <div class="items__container">
+        <div id="items_content" class="items__content">
+    
+            <app-single-item
+                *ngFor="let Item of items" 
+                [ngClass]="setLabel(Item)"
+                [singleItem]="Item">
+            </app-single-item>
+            
+        </div>
+    </div>
+</div>

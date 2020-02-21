@@ -1,0 +1,81 @@
+@import 'vars';
+
+.title {
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1rem;
+    }
+
+    &__directory {
+        padding: 2.5rem 2rem;
+    }
+
+    &__route {
+        display: flex;
+        padding: 2.5rem 2rem;
+        padding-top: 3rem;
+    }
+
+    &__link {
+        font-size: 1.4rem;
+    }
+
+    &__link:hover {
+        color: $color-green-3;
+    }
+}
+
+.sorting__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: $border-transparent;
+    border-left: none;
+    border-right: none;
+    padding: 1rem 0rem;
+    margin: 0rem 2rem;
+}
+
+.items {
+    &__container {
+        padding: 3rem 1rem 2rem 1rem;
+    }
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        padding: .5rem;
+        flex: 0 1 25%;
+        transition: all .3s;
+        position: relative;
+    }
+    
+    &__item:hover {
+        transform: scale(1.05);
+        z-index: 30;
+    }
+    
+    &__item:hover > &__edit{
+        display: block;
+    }
+
+    &__item--sale::after {
+        content: "SALE!";
+        position: absolute;
+        top: 1rem;
+        right: 0;
+        height: 4rem;
+        width: 10rem;
+        padding: 1.2rem 2.8rem;
+        color: $color-white-1;
+        background-image: linear-gradient(90deg, $color-green-2, $color-green-3 100%);
+        box-shadow: 0 .5rem .5rem $shadow-color-1;
+        z-index: 20;
+        transform: rotate(15deg);
+    }
+}

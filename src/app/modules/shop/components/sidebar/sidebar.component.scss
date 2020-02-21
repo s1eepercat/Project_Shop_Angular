@@ -1,0 +1,42 @@
+@import 'vars';
+
+.aside {
+    &__container > * {
+        background-color: $color-white-1;
+        margin-bottom: 3rem;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    &__title {
+        padding-bottom: 1.5rem;
+    }
+
+    &__break {
+        border:none;
+        border-top: 2px dotted $color-black-1;
+        width:100%;
+    }
+
+    &__texts-container {
+        padding-top: 1.5rem;
+        display:flex;
+        flex-direction: column;
+    }
+
+    &__text {
+        padding: .3rem 0;
+        cursor: pointer;   
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-right: 1rem;
+    }
+
+    &__text:hover {
+        color: $color-green-3;
+    }
+
+}
