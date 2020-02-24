@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AdminPageModule } from './modules/admin/admin-page.module';
 import { ShopPageModule } from './modules/shop/shop-page.module';
-import { CartPageModule } from './modules/cart/cart-page.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -19,7 +18,6 @@ import { HeaderComponent } from './components/header/header.component';
     AppRoutingModule,
     AdminPageModule,
     ShopPageModule,
-    CartPageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

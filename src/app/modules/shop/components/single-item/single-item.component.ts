@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { FindItemService } from '../../../../services/find-item/find-item.service';
 
-import { Item } from '../../../../models/Item';
+import { item } from '../../../../models/item.model';
 
 @Component({
   selector: 'app-single-item',
@@ -9,41 +11,23 @@ import { Item } from '../../../../models/Item';
 })
 export class SingleItemComponent implements OnInit {
 
-  @Input() singleItem: Item;
+  @Input() singleItem: item;
 
-  constructor() { }
+  constructor(private findItemService: FindItemService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  }
 
-  }
+  edit(id:number) :void {
+    this.findItemService.passId(id);
+    this.findItemService.findItem().subscribe(
+      res => {
+        this.router.navigate(['/admin']);
 
-  setStandardClasses() {
-    let classes = {
-      "items__price" : true,
-      "items__price--sale" : this.singleItem.discount
-    }
-    return classes
-  }
+        //PREFILL FORM HERE
 
-  setDiscountClasses() {
-    let classes = {
-      "items__price" : true,
-      "items__price--hidden" : !this.singleItem.discount
-    }
-    return classes
-  }
-
-  formatPrice(num:number) {
-    let testString = num.toString();
-    if (testString.indexOf('.') !== -1) {
-        let str = (Math.round(num * 100)).toString();
-        if (str.length >= 4) {
-            return str.slice(0, str.length-2) + '.' + str.slice(str.length-2);
-        } else {
-            return '0.' + str.slice(str.length-2);
-        }
-    } else {
-        return num + '.00'
-    }
+        console.log(res);
+      },
+      err => console.log(`Something went wrong, response status is: ${err.status}.`)
+    )
   }
 }

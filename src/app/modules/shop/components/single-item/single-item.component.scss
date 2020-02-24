@@ -14,13 +14,17 @@
         left: 2rem;
         height: 3rem;
         width: 3rem;
-        background-color: rgb(29, 29, 29);
+        background-color: $color-black-1;
         color: $color-white-1;
-        font-size: 1.2rem;
+        font-size: $font-size-edit;
         text-align: center;
-        line-height: 3.4rem;
-        z-index: 40;
+        line-height: 3rem;
+        z-index: 150;
         cursor: pointer;
+    }
+
+    &__component:hover &__edit {
+        display: block;
     }
     
     &__edit:active {
@@ -63,28 +67,22 @@
         display: flex;
     }
     
-
-
-    
     &__price {
         margin: 0 auto;
         padding: 0 1rem;
     }
 
-    &__price--hidden {
+    &__price-hidden {
         display: none;
     }
 
-    &__price--sale {
+    &__price-onsale {
         order: 0;
         font-weight: normal;
         text-decoration: line-through;
         color: $color-grey-1;
     }
     
-
-
-
     &__button {
         letter-spacing: .1rem;
         border: none;

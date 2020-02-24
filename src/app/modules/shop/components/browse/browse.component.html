@@ -7,21 +7,19 @@
             <a class="title__link" href="#">SHOP</a>
         </div>
     </div>
-
     <div class="sorting__container">
         <label class="sorting__label" for="sorting">Showing 1-10 of 23 result</label>
         <app-option></app-option>
     </div>
-    
     <div class="items__container">
         <div id="items_content" class="items__content">
-    
-            <app-single-item
-                *ngFor="let Item of items" 
-                [ngClass]="setLabel(Item)"
-                [singleItem]="Item">
+            <app-single-item class="items__item"
+                *ngFor="let item of items" 
+                [ngClass] = "(item.discount ? 'items__item-sale' : '')"
+                [singleItem]="item">
             </app-single-item>
-            
+
+            <app-new-item-button class='new-item'></app-new-item-button>
         </div>
     </div>
 </div>

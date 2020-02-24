@@ -1,12 +1,21 @@
 <div class="items__component">
+    <a (click)="edit(singleItem.id)" class="items__edit">Edit</a>
     <figure class="items__figure">
-        <img class="items__image" src={{singleItem.image}} alt={{singleItem.title}}>
+        <img class="items__image" src="assets{{singleItem.image}}" alt="{{singleItem.name}}">
     </figure>
     <div class="items__details">
-        <h3 class="items__name" title={{singleItem.title}}>{{singleItem.title}}</h3>
+        <h3 class="items__name" title={{singleItem.name}}>{{singleItem.name}}</h3>
         <div class="items__price-container">
-            <h3 [ngClass]="setStandardClasses()">{{formatPrice(singleItem.price)}}</h3>
-            <h3 [ngClass]="setDiscountClasses()">{{formatPrice((1 - singleItem.discount/100) * singleItem.price)}}</h3>
+            <h3    
+                class="items__price" 
+                [ngClass] = "(singleItem.discount ? 'items__price-onsale' : '')">
+                {{singleItem.price | number:'1.2-2'}}
+            </h3>  
+            <h3 
+                class="items__price" 
+                [ngClass] = "(!singleItem.discount ? 'items__price-hidden' : '')">
+                {{((1 - singleItem.discount/100) * singleItem.price) | number:'1.2-2'}}
+            </h3>
         </div>
         <button class="items__button">ADD TO CART</button>
     </div>

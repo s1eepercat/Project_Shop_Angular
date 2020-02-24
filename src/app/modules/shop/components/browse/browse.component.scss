@@ -5,6 +5,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+    
         padding-top: 1rem;
     }
 
@@ -54,17 +55,17 @@
         transition: all .3s;
         position: relative;
     }
-    
+
     &__item:hover {
         transform: scale(1.05);
         z-index: 30;
     }
-    
+
     &__item:hover > &__edit{
         display: block;
     }
 
-    &__item--sale::after {
+    &__item-sale::after {
         content: "SALE!";
         position: absolute;
         top: 1rem;
@@ -78,4 +79,13 @@
         z-index: 20;
         transform: rotate(15deg);
     }
+}
+
+.new-item {
+    position: fixed;
+    bottom: 5%; 
+    right: 5%;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 40;
 }
