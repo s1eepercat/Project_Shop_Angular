@@ -7,12 +7,12 @@ import { BrowseComponent } from './modules/shop/components/browse/browse.compone
 import { CartComponent } from './modules/shop/components/cart/cart.component';
 
 const routes: Routes = [
-  {path:'', redirectTo: 'shop/browse', pathMatch: 'full'}, 
   {path:'shop', component: ShopPageComponent, children: [
       {path: 'browse', component: BrowseComponent},
       {path: 'cart', component: CartComponent},
   ]},
   {path:'admin', component: AdminPageComponent},
+  {path:'admin/:id', component: AdminPageComponent},
   {path:'**', redirectTo:'shop/browse', pathMatch:'full'}
 ];
 

@@ -1,22 +1,23 @@
-<div class="items__component">
-    <a (click)="edit(singleItem.id)" class="items__edit">Edit</a>
-    <figure class="items__figure">
-        <img class="items__image" src="assets{{singleItem.image}}" alt="{{singleItem.name}}">
+<div class="container">
+    <a class="edit" [routerLink]="['/admin',singleItem.id]">edit</a>
+    <figure class="figure">
+        <img src="assets{{singleItem.image}}" alt="{{singleItem.name}}">
     </figure>
-    <div class="items__details">
-        <h3 class="items__name" title={{singleItem.name}}>{{singleItem.name}}</h3>
-        <div class="items__price-container">
+    <div class="details">
+        <h3 class="name" title={{singleItem.name}}>{{singleItem.name}}</h3>
+        <div class="price-container">
             <h3    
-                class="items__price" 
-                [ngClass] = "(singleItem.discount ? 'items__price-onsale' : '')">
+                class="price" 
+                [ngClass] = "(singleItem.discount ? 'price-onsale' : '')">
                 {{singleItem.price | number:'1.2-2'}}
             </h3>  
             <h3 
-                class="items__price" 
-                [ngClass] = "(!singleItem.discount ? 'items__price-hidden' : '')">
+                class="price" 
+                [ngClass] = "(!singleItem.discount ? 'price-hidden' : '')">
                 {{((1 - singleItem.discount/100) * singleItem.price) | number:'1.2-2'}}
             </h3>
         </div>
-        <button class="items__button">ADD TO CART</button>
+        <button class="btn">ADD TO CART</button>
     </div>
+
 </div>

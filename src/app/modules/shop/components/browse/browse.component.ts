@@ -20,8 +20,4 @@ export class BrowseComponent implements OnInit {
       err => console.log(`Something went wrong, response status is: ${err.status}.`)
     );
   }
-
-  ngOnDestroy() {
-    // ????????????????? UNSUB
-  }
 }

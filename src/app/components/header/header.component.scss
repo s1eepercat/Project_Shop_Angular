@@ -1,65 +1,47 @@
 @import 'vars';
 
-.header {
-    &__container{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-    
-        height: 20rem;
-    
-        background-image: $header-image;
-        background-size: 100%;
-        background-position-y: 0%;
-    }
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 20rem;
+    background-image: $header-image;
+    background-size: 100%;
+    background-position-y: 0%;
 
-    &__nav {
+    .nav {
         height: 6rem;
-        background-color: $color-black-1;
+        background-color: $bg-color-nav;
         display: flex;
         align-items: center;
-    }
-}
 
-.nav {
-    &__container {
-        display: flex; 
-        justify-content: flex-start;
-        align-items: center;
-        width: 90%;
-        margin: 0 auto;
-        list-style-type: none;
-    }
+        .list {
+            display: flex; 
+            justify-content: flex-start;
+            align-items: center;
+            width: 90%;
+            margin: 0 auto;
+            list-style-type: none;
 
-    &__item {
-        width: 100%;
-        text-align: center;
-        width: 15rem;
-        color: $color-white-1;
-        cursor: pointer;
-        position: relative;
-        overflow: hidden;
-    }
-
-    &__item {
-        transition: all .4s cubic-bezier(0.075, 0.82, 0.165, 1);
-    }
-
-    &__item:active {
-        transform: scale(0.9);
-    }
-
-    &__item:hover {
-        color: $color-green-1;
-    }
-
-    &__link {
-        display: block;
-        height: 100%;
-        padding: .8rem 0 .3rem 0;
-    }
-
-    &__active {
-        font-weight: bold;
+            &-item {
+                width: 100%;
+                text-align: center;
+                width: 15rem;
+                color: $font-color-nav;
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+            }
+    
+            &-link {
+                display: block;
+                height: 100%;
+                padding: .8rem 0 .3rem 0;
+            }
+    
+            &-link-active {
+                font-weight: bold;
+            }
+        }
     }
 }

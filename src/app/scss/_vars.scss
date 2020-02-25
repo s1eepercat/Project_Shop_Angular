@@ -1,5 +1,12 @@
+// imgs
+$header-image: url('/assets/header.jpeg');
+$background-image: url('/assets/bg.jpeg');
+$admin-button-image: url('/assets/new-item.jpeg');
+
+// fonts
 $font-family: 'Overpass', sans-serif; 
 
+// font sizes
 $font-size-btn: 1.5rem;
 $font-size-h2: 3.2rem;
 $font-size-h3: 1.7rem;
@@ -9,25 +16,59 @@ $font-size-select-option: 1.2rem;
 $font-size-p: 1.6rem;
 $font-size-input: 1.2rem;
 $font-size-edit: 1.2rem;
+$font-size-admin-button: 1.8rem;
+$font-size-form-status: 2rem;
+$font-size-form: 1.5rem;
+$font-size-warning: 1.4rem;
 
+// font weights
 $font-weight-btn: 400;
 $font-weight-h2: 400;
-$font-weight-h3: bold;
+$font-weight-h3: 700;
 $font-weight-li: 500;
 
-$color-grey-1: rgb(112, 112, 112);
-$color-white-1: #fcfcfc;
-$color-black-1: #0E1111;
-$color-green-1: rgb(67,207,177);
-$color-green-2: rgb(67,207,177);
-$color-green-3: rgb(46,152,81);
+// font colors
+$font-color-hover: rgb(46,152,81);
+$font-color-nav: rgb(252,252,252);
+$font-color-sale-label: rgb(252,252,252);
+$font-color-admin-button: rgb(252,252,252);
+$font-color-edit-btn: rgb(252,252,252);
+$font-color-sale-price: rgb(112, 112, 112);
+$font-color-add-to-cart: rgb(252,252,252);
+$font-color-form-status: rgb(252,252,252);
+$font-color-form-btn: rgb(252,252,252);
+$font-color-delete-btn: rgb(252,252,252);
+$font-color-warning: rgb(219, 32, 32);
 
-$header-image: url('/assets/header.jpeg');
-$background-image: url('/assets/bg.jpeg');
+// bg colors
+$bg-color-nav: rgb(14,17,17);
+$bg-color-input: rgb(252,252,252);
+$bg-color-main-section: rgb(252,252,252);
+$bg-color-aside-section: rgb(252,252,252);
+$bg-color-edit-btn: rgb(14,17,17);
+$bg-color-item: rgb(112, 112, 112);
+$bg-color-add-to-cart-hover: rgb(252,252,252);
+$bg-color-discount: rgba(122, 122, 122, 0.25);
+$bg-color-delete-btn: rgb(14,17,17);
+$bg-color-save-btn-disabled: rgb(112, 112, 112);
 
-$shadow-color-1: rgba(0,0,0,0.3);
-$shadow-color-2: rgba(0,0,0,0.4);
-$shadow-color-3: rgba(0,0,0,0.5);
+//gradients
+$gradient-sale: linear-gradient(90deg, rgb(67,207,177), rgb(46,152,81) 100%); 
+$gradient-add-to-cart: linear-gradient(90deg, rgb(67,207,177) 21%, rgb(46,152,81) 100%);
 
-$border: 1px solid rgb(192, 189, 189); 
-$border-transparent: 1px solid rgba(192, 189, 189,0.5); 
+//borders
+$border-input: 1px solid rgb(192, 189, 189); 
+$border-input-active: 2px solid rgba(46,152,81,0.5);
+$border-select-option: 1px solid rgba(192, 189, 189,0.5); 
+$border-main-section: 1px solid rgba(192, 189, 189,0.5); 
+$border-admin-button: 2px solid rgb(252,252,252);
+$border-aside-break: 2px dotted rgb(14,17,17);
+$border-item: 1px solid rgba(192, 189, 189,0.5); 
+$border-add-to-cart-hover: 1px solid rgb(46,152,81);
+$border-form-input: 2px solid rgb(252,252,252);
+$border-delete-btn: 1px solid rgb(14,17,17);
+
+//shadows
+$shadow-sale: 0 0.5rem 0.5rem rgba(0,0,0,0.3);
+$shadow-item: 0 1.5rem 1rem rgba(0,0,0,0.4);
+$shadow-add-to-cart: 0 0.5rem 0.5rem rgba(0,0,0,0.5);

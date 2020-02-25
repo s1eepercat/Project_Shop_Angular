@@ -1,8 +1,9 @@
 @import 'vars';
 
-.aside {
-    &__container > * {
-        background-color: $color-white-1;
+.container {
+
+    & > * {
+        background-color: $bg-color-aside-section;
         margin-bottom: 3rem;
         padding: 2rem;
         display: flex;
@@ -10,33 +11,28 @@
         justify-content: flex-start;
     }
 
-    &__title {
-        padding-bottom: 1.5rem;
-    }
+    .title { padding-bottom: 1.5rem; }
 
-    &__break {
+    .break {
         border:none;
-        border-top: 2px dotted $color-black-1;
+        border-top: $border-aside-break;
         width:100%;
     }
 
-    &__texts-container {
+    .content {
         padding-top: 1.5rem;
         display:flex;
         flex-direction: column;
-    }
 
-    &__text {
-        padding: .3rem 0;
-        cursor: pointer;   
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        padding-right: 1rem;
-    }
+        & > p {
+            padding: .3rem 0;
+            cursor: pointer;   
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-right: 1rem;
 
-    &__text:hover {
-        color: $color-green-3;
+            &:hover { color: $font-color-hover; }
+        }
     }
-
 }

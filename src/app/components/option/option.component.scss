@@ -1,9 +1,16 @@
-.sorting__select {
+@import 'vars';
+
+select {
     display: flex;
     justify-content: space-between;
     width: 20rem;
     padding: .7rem;
-    border: 1px solid rgba(192, 189, 189,.5); 
+    border: $border-select-option;
     outline: none;
     cursor: pointer;
+    font-size: $font-size-select-option;
+}
+
+option {
+    font-size: $font-size-select-option;
 }

@@ -1,0 +1,10 @@
+@import 'vars';
+
+section { 
+    min-height: calc(100vh - 6rem); 
+    background-image: $background-image;
+    background-size: cover; 
+    padding-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+}

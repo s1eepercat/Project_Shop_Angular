@@ -1,35 +1,33 @@
-@import '../../scss/vars';
+@import 'vars';
 
-.global {
-    &__container {
-        background-image: $background-image;
-        background-size: cover; 
-        min-height: calc(100vh - 20rem);
-    }
+section {
+    background-image: $background-image;
+    background-size: cover; 
+    min-height: calc(100vh - 20rem);
 
-    &__content {
+    div {
         display: flex;
         justify-content: space-between;
         width: 90%;
         padding-top: 2.5rem;
         margin: 0 auto;
-    }
 
-    &__left {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        background-color: $color-white-1;
-        opacity: 0.95;
-        z-index: 10;
-    }
+        main {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            background-color: $bg-color-main-section;
+            opacity: 0.95;
+            z-index: 10;
+        }
 
-    &__right {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        width: 32rem;
-        margin-left: 3rem;
-        opacity: 0.95;
+        aside {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            width: 32rem;
+            margin-left: 3rem;
+            opacity: 0.95;
+        }
     }
 }

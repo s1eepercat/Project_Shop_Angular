@@ -1,121 +1,106 @@
 @import 'vars';
 
-.items {    
-    &__component {
-        border: $border-transparent;
-        box-shadow: 0 1.5rem 1rem $shadow-color-2;
-        height: 40rem;
-    }
+.container {
+    border: $border-item;
+    box-shadow: $shadow-item;
+    height: 40rem;
 
-    &__edit {
+    &:hover > .edit { display: block; }
+
+    .edit {
         display: none;
         position: absolute;
         top: 2rem;
         left: 2rem;
         height: 3rem;
         width: 3rem;
-        background-color: $color-black-1;
-        color: $color-white-1;
+        background-color: $bg-color-edit-btn;
+        color: $font-color-edit-btn;
         font-size: $font-size-edit;
         text-align: center;
         line-height: 3rem;
         z-index: 150;
         cursor: pointer;
+
+        &:active { transform: scale(0.9); }
     }
 
-    &__component:hover &__edit {
-        display: block;
-    }
-    
-    &__edit:active {
-        transform: scale(0.9);
-    }
-    
-    &__figure {
-        background-color: $color-grey-1;
-    
+    .figure {
+        background-color: $bg-color-item;
         height: 65%;
         overflow: hidden;
         display: flex;
         justify-content: center;
         align-items: center;
+
+        & > img {
+            opacity: 0.8;
+            width: 110%;
+        }
     }
-    
-    &__image {
-        opacity: 0.8;
-        width: 110%;
-    }
-    
-    &__details {
+
+    .details {
         height: 35%;
         padding: 2rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-    }
-    
-    &__name {
-        max-width: 12rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        font-weight: bold;
-    }
-    
-    &__price-container {
-        display: flex;
-    }
-    
-    &__price {
-        margin: 0 auto;
-        padding: 0 1rem;
-    }
 
-    &__price-hidden {
-        display: none;
-    }
+        .name {
+            max-width: 12rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: bold;
+        }
 
-    &__price-onsale {
-        order: 0;
-        font-weight: normal;
-        text-decoration: line-through;
-        color: $color-grey-1;
-    }
+        .price-container { 
+            display: flex; 
+        
+            .price {
+                margin: 0 auto;
+                padding: 0 1rem;
     
-    &__button {
-        letter-spacing: .1rem;
-        border: none;
-        padding: 1rem 2.5rem;
-        box-shadow: 0 .5rem .5rem $shadow-color-3;
-        color: $color-white-1;
-        background-image: linear-gradient(90deg, $color-green-2 21%, $color-green-3 100%);
+                &-onsale {
+                    order: 0;
+                    font-weight: normal;
+                    text-decoration: line-through;
+                    color: $font-color-sale-price;
+                }
     
-        position:relative;
-    
-        transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-        cursor: pointer;
-    } 
-    
-    &__button:active {
-        transform: scale(0.9);
-    }
-    
-    &__button:hover {
-        color: $color-green-3;
-        background-image: none;
-        background-color: $color-white-1;
-    }
-    
-    &__button:hover::after {
-        content: "";
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        border: 1px solid $color-green-3;
+                &-hidden { display: none; }
+            }
+        }
+
+        .btn {
+            letter-spacing: .1rem;
+            border: none;
+            padding: 1rem 2.5rem;
+            box-shadow: $shadow-add-to-cart;
+            color: $font-color-add-to-cart;
+            background-image: $gradient-add-to-cart;
+            position:relative;
+            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+            cursor: pointer;
+
+            &:active { transform: scale(0.9); }
+
+            &:hover {
+                color: $font-color-hover;
+                background-image: none;
+                background-color: $bg-color-add-to-cart-hover;
+            }
+
+            &:hover::after {
+                content: "";
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                border: $border-add-to-cart-hover;
+            }
+        }
     }
 }
-    
-

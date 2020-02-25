@@ -14,5 +14,4 @@ export class GetItemsService {
   getItems():Observable<item[]> {
     return this.http.get<item[]>(`${environment.api}items`);
   }
-
 }

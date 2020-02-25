@@ -32,58 +32,37 @@ h3 {
 
 li {
     font-size: $font-size-li;
-    font-weight: text-weight-li;
+    font-weight: $font-weight-li;
 }
 
-label {
-    font-size: $font-size-label;
-}
-
-select, option {
-    font-size: $font-size-select-option;
-}
+label { font-size: $font-size-label; }
 
 a {
     text-decoration: none;
     color: inherit;
 }
 
-p {
-    font-size: $font-size-p;
-}
+input, select { outline: none; }
+
+p { font-size: $font-size-p; }
 
 button:hover, button:focus {
     outline: none;
     -webkit-tap-highlight-color: transparent;
 }
 
-input:active, input:focus {
-    outline: none;
-    border: 2px solid rgba(46,152,81,.5);
-    opacity: 1;
-}
-
 @media only screen and (max-width: 1000px) {
-    html {
-      font-size: 56.25%; /* 9px */
-    } 
+    html { font-size: 56.25%; /* 9px */ } 
 }
 
 @media only screen and (max-width: 600px) {
-    html {
-      font-size: 50%; /* 8px */
-    } 
+    html { font-size: 50%; /* 8px */ } 
 } 
 
 @media only screen and (max-width: 400px) {
-    html {
-      font-size: 46.875%; /* 7.5px */
-    } 
+    html { font-size: 46.875%; /* 7.5px */ } 
 } 
 
 @media only screen and (max-width: 600px) {
-
-    a, p {
-        font-size: 1.8rem;
-    }
+    a, p { font-size: 1.8rem; }
 } 

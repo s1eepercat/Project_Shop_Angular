@@ -1,12 +1,18 @@
 @import 'vars';
 
-.input {
+input {
     width: 100%;
     height: 3rem;
-    background-color: $color-white-1;
+    background-color: $bg-color-input;
     padding: .7rem 1rem;
-    border: $border;
+    border: $border-input;
     outline: none;
     font-size: $font-size-input;
     opacity: .65;
+}
+
+input:active, input:focus {
+    border: $border-input-active;
+    opacity: 1;
+    outline: none;
 }

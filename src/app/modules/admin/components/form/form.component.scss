@@ -1,0 +1,122 @@
+@import 'vars';
+
+.status {
+    margin: 1.5rem 0;
+    padding: 1.5rem 4rem 1rem 4rem;
+    font-size: $font-size-form-status;
+    color: $font-color-form-status;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 40rem;
+
+    .text-input {
+        padding: 1.5rem 1.5rem;
+        margin: 1rem;
+        font-size: $font-size-form;
+        border: $border-form-input;
+
+        &:active, &:focus {
+            border: $border-input-active;
+        }
+    }
+
+    select {
+        padding: 1.5rem 1.5rem;
+        margin: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .discount-container {
+        padding: 1.5rem;
+        margin: 1rem;
+        background-color: $bg-color-discount;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 10rem;
+
+        label { font-size: $font-size-form; }
+
+        .discount {
+            padding: 1.5rem 1.5rem;
+            font-size: $font-size-form;
+            display: none;
+        }
+
+        .checkbox {
+            width: 2rem;
+            height: 2rem;
+            margin: 1rem;
+
+            &:checked ~ .discount {
+                display: block;
+                width: 15rem;
+            }
+        }
+    }
+
+    .btn {
+        padding: 2rem 2.5rem;
+        margin: 1rem;
+        letter-spacing: .1rem;
+        border: none;
+        color: $font-color-form-btn;
+ 
+        &:enabled {
+            opacity: 1;
+            background-image: $gradient-add-to-cart;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+            &:hover {
+                color: $font-color-hover;
+                background-image: none;
+                background-color: $bg-color-add-to-cart-hover;
+                border: $border-add-to-cart-hover;
+            }
+
+            &:active {
+                transform: scale(0.9);
+            }
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            background-color: $bg-color-save-btn-disabled;
+        }
+    }
+}
+
+.btn-delete {
+    padding: 2rem 2.5rem;
+    width: 15rem;
+    height: 6rem;
+    margin: 5rem 1rem 1rem 1rem;
+    background-color: $bg-color-delete-btn;
+    letter-spacing: .1rem;
+    border: none;
+    color: $font-color-delete-btn;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    text-transform: uppercase;
+
+    &:hover {
+        color: $bg-color-delete-btn;
+        background-color: $font-color-delete-btn;
+        border: $border-delete-btn;
+    }
+
+    &:active {
+        transform: scale(0.9);
+    }
+}
+
+.warning {
+    padding: 1.15rem 2.5rem 0.1rem 2.5rem;
+    font-size: $font-size-warning;
+    font-weight: bold;
+    color: $font-color-warning;
+}

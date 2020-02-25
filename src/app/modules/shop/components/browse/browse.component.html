@@ -1,25 +1,26 @@
 <div>
-    <div class="title__container">
-        <h2 class="title__directory">Shop</h2>
-        <div class="title__route">
-            <a class="title__link" href="#">HOME</a>
+    <div class="title-container">
+        <h2 class="title-heading">Shop</h2>
+        <div class="title-route">
+            <a href="#">HOME</a>
             <p>&nbsp;/&nbsp;</p>
-            <a class="title__link" href="#">SHOP</a>
+            <a href="#">SHOP</a>
         </div>
     </div>
-    <div class="sorting__container">
-        <label class="sorting__label" for="sorting">Showing 1-10 of 23 result</label>
+    <div class="sorting-container">
+        <label for="sorting">Showing 1-10 of 23 result</label>
         <app-option></app-option>
     </div>
-    <div class="items__container">
-        <div id="items_content" class="items__content">
-            <app-single-item class="items__item"
+    <div class="items-container">
+        <div class="content">
+
+            <app-single-item class="item"
                 *ngFor="let item of items" 
-                [ngClass] = "(item.discount ? 'items__item-sale' : '')"
+                [ngClass] = "(item.discount ? 'item-sale' : '')"
                 [singleItem]="item">
             </app-single-item>
 
-            <app-new-item-button class='new-item'></app-new-item-button>
+            <app-new-item-button class='admin-btn-container'></app-new-item-button>
         </div>
     </div>
 </div>
