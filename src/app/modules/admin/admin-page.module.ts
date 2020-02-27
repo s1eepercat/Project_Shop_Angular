@@ -7,11 +7,13 @@ import { AppRoutingModule } from './../../app-routing.module';
 
 import { AdminPageComponent } from './admin-page.component';
 import { FormComponent } from './components/form/form.component';
+import { SelectOptionComponent } from './components/select-option/select-option.component';
 
 @NgModule({
   declarations: [
     AdminPageComponent,
-    FormComponent
+    FormComponent,
+    SelectOptionComponent
   ],
   imports: [
     CommonModule,

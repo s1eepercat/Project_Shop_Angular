@@ -23,27 +23,27 @@ export class RequestsService {
     return throwError(errorMessage);
   }
 
-  getItems():Observable<Item[]> {
+  getItems() {
     return this.http.get<Item[]>(`${environment.api}items`)
       .pipe(catchError(this.handleError))
   }
 
-  findItem(id:number):Observable<Item> {
+  findItem(id:number) {
     return this.http.get<Item>(`${environment.api}items?id=${id}`)
       .pipe(catchError(this.handleError))
   }
 
-  createItem(item: any):Observable<Item> {
+  createItem(item: Item) {
     return this.http.post<Item>(`${environment.api}items`,item)
       .pipe(catchError(this.handleError))
   }
 
-  updateItem(id: number,item: Item):Observable<Item> {
+  updateItem(id: number,item: Item) {
     return this.http.put<Item>(`${environment.api}items?id=${id}`, item)
       .pipe(catchError(this.handleError))
   }
 
-  deleteItem(id: number):Observable<Item> {
+  deleteItem(id: number) {
     return this.http.delete<Item>(`${environment.api}items?id=${id}`)
       .pipe(catchError(this.handleError))
   }

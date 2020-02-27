@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Item } from '../../../../models/item.model';
-
 import { RequestsService } from '../../../../services/requests.service';
 
 @Component({
@@ -12,89 +10,97 @@ import { RequestsService } from '../../../../services/requests.service';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
+  private static DEFAULT_IMAGE = "/1.jpg";
   isEditMode = false;
   isCheckboxChecked = false;
-  defaultImage = "/1.jpg";
   id: number;
+  status: any;
   itemForm: FormGroup;
-
-  defaultControls = {
-    nameControl: new FormControl('', [Validators.required, Validators.maxLength(30)]),
-    priceControl: new FormControl('', [Validators.required, Validators.min(0), Validators.max(9999)]),
-    imageControl: new FormControl(this.defaultImage),
-    discountControl: new FormControl('', [Validators.min(0), Validators.max(99)])
-  }
-
+  imageControl = new FormControl(FormComponent.DEFAULT_IMAGE);
+  discountControl = new FormControl('', [Validators.min(0), Validators.max(99)]);
+  
   constructor(
     private formBuilder: FormBuilder, 
     private activatedRoute: ActivatedRoute, 
     private requestsService: RequestsService,
     private router: Router
-    ) {}
+    ) { }
 
   ngOnInit() {
-    this.itemForm = this.formBuilder.group(this.setInitialFormValues(this.defaultControls));
-    this.queryStringHasId() && this.findItem();
-  }
-
-  findItem() {
-    this.requestsService.findItem(this.id).subscribe( 
-      response => {
-        response.discount ? this.isCheckboxChecked = true : this.isCheckboxChecked;
-        this.itemForm.setValue(this.setFormValuesFrom(response));
-        this.isEditMode = true;
-      }, 
-      error => alert(error));
+    this.handleQueryParams();
+    this.buildForm();
   }
 
   onDelete() {
     this.requestsService.deleteItem(this.id).subscribe(
-      response => this.afterSubmitSuccess(response, true), 
-      error => alert(error));
+      response => {
+        this.status = response;
+        this.handleNavigation(true);
+      }, 
+      error => this.status = error
+      );
   }
 
   onFormSubmit() {
-    if (this.isEditMode) {
-      this.requestsService.updateItem(this.id,this.setFormValuesFrom(this.itemForm.value)).subscribe(
-        response => this.afterSubmitSuccess(response, true), 
-        error => alert(error))
-    } else {
-      this.requestsService.createItem(this.setFormValuesFrom(this.itemForm.value)).subscribe(
-        response => this.afterSubmitSuccess(response), 
-        error => alert(error))
+    this.discountControl.setValue(this.isCheckboxChecked ? this.discountControl.value : 0);
+    this.isEditMode ? this.update() : this.create();
+  }
+
+  private create() {
+    this.requestsService.createItem(this.itemForm.value).subscribe(
+      response => {
+        this.status = response;
+        this.handleNavigation();
+      }, 
+      error => this.status = error
+      );
+  }
+
+  private update() {
+    this.requestsService.updateItem(this.id,this.itemForm.value).subscribe(
+      response => {
+        this.status = response;
+        this.handleNavigation(true);
+      }, 
+      error => this.status = error
+      );
+  }
+
+  private buildForm() {
+    this.itemForm = this.formBuilder.group( {
+      name: new FormControl('', [Validators.required, Validators.maxLength(30)]),
+      price: new FormControl('', [Validators.required, Validators.min(0), Validators.max(9999)]),
+      image: this.imageControl,
+      discount: this.discountControl
+    });
+  }
+
+  private handleQueryParams() { 
+    this.id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'),10);
+    if (this.id) {
+      this.isEditMode = true;
+      this.findItem();
     }
   }
 
-  setInitialFormValues(from: any) {
-    return {
-      name: from.nameControl,
-      price: from.priceControl,
-      image: from.imageControl,
-      discount: from.discountControl
-    }
+  private findItem() {
+    this.requestsService.findItem(this.id).subscribe( 
+      response => {
+        this.isCheckboxChecked = !!response.discount;
+        const formedResponse = {...response}
+        delete formedResponse.id
+        this.itemForm.setValue(formedResponse);
+        this.status = response;
+      });
   }
 
-  setFormValuesFrom(from: Item) {
-    return {
-      name: from.name,
-      price: from.price,
-      image: from.image,
-      discount: this.isCheckboxChecked ? from.discount : 0
-    }
-  }
-
-  queryStringHasId() { 
-    return this.id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'),10); 
-  }
-
-  afterSubmitSuccess(response:any, redirect?: boolean) {
-    alert(response);
+  private handleNavigation(redirect?: boolean) {
     if (redirect) {
       this.router.navigate(['/shop/browse']);
     } else {
       this.router.navigate(['/admin']);
       this.itemForm.reset();
-      this.itemForm.controls['image'].setValue(this.defaultImage);
+      this.imageControl.setValue(FormComponent.DEFAULT_IMAGE);
     }
   }
 }
