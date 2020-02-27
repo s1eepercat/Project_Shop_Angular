@@ -30,8 +30,10 @@ $font-weight-li: 500;
 // font colors
 $font-color-hover: rgb(46,152,81);
 $font-color-nav: rgb(252,252,252);
+$font-color-nav-hover: rgb(67,207,177);
 $font-color-sale-label: rgb(252,252,252);
 $font-color-admin-button: rgb(252,252,252);
+$font-color-admin-button-hover: rgb(14,17,17);
 $font-color-edit-btn: rgb(252,252,252);
 $font-color-sale-price: rgb(112, 112, 112);
 $font-color-add-to-cart: rgb(252,252,252);
@@ -62,13 +64,18 @@ $border-input-active: 2px solid rgba(46,152,81,0.5);
 $border-select-option: 1px solid rgba(192, 189, 189,0.5); 
 $border-main-section: 1px solid rgba(192, 189, 189,0.5); 
 $border-admin-button: 2px solid rgb(252,252,252);
+$border-admin-button-hover: 2px solid rgb(14,17,17);
 $border-aside-break: 2px dotted rgb(14,17,17);
 $border-item: 1px solid rgba(192, 189, 189,0.5); 
 $border-add-to-cart-hover: 1px solid rgb(46,152,81);
 $border-form-input: 2px solid rgb(252,252,252);
+$border-form-input-red: 2px solid rgb(219, 32, 32);
 $border-delete-btn: 1px solid rgb(14,17,17);
 
 //shadows
 $shadow-sale: 0 0.5rem 0.5rem rgba(0,0,0,0.3);
 $shadow-item: 0 1.5rem 1rem rgba(0,0,0,0.4);
 $shadow-add-to-cart: 0 0.5rem 0.5rem rgba(0,0,0,0.5);
+
+//transitions
+$transition-button: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);

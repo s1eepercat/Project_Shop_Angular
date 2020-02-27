@@ -1,13 +1,7 @@
 @import 'vars';
 
-.status {
-    margin: 1.5rem 0;
-    padding: 1.5rem 4rem 1rem 4rem;
-    font-size: $font-size-form-status;
-    color: $font-color-form-status;
-}
-
 form {
+    padding-top: 4rem;
     display: flex;
     flex-direction: column;
     width: 40rem;
@@ -18,9 +12,9 @@ form {
         font-size: $font-size-form;
         border: $border-form-input;
 
-        &:active, &:focus {
-            border: $border-input-active;
-        }
+        &:active, &:focus { border: $border-input-active; }
+
+        &-warn { border: $border-form-input-red !important; }
     }
 
     select {
@@ -78,9 +72,7 @@ form {
                 border: $border-add-to-cart-hover;
             }
 
-            &:active {
-                transform: scale(0.9);
-            }
+            &:active { transform: scale(0.9); }
         }
 
         &:disabled {
@@ -100,7 +92,7 @@ form {
     border: none;
     color: $font-color-delete-btn;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: $transition-button;
     text-transform: uppercase;
 
     &:hover {
@@ -109,14 +101,7 @@ form {
         border: $border-delete-btn;
     }
 
-    &:active {
-        transform: scale(0.9);
-    }
-}
+    &:active { transform: scale(0.9); }
 
-.warning {
-    padding: 1.15rem 2.5rem 0.1rem 2.5rem;
-    font-size: $font-size-warning;
-    font-weight: bold;
-    color: $font-color-warning;
+    &-hidden { display: none; }
 }

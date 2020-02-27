@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GetItemsService } from '../../../../services/get-items/get-items.service';
+import { RequestsService } from '../../../../services/requests.service';
 
 import { item } from '../../../../models/item.model';
 
@@ -12,12 +12,12 @@ export class BrowseComponent implements OnInit {
 
   items: item[];
 
-  constructor(private getItemsService: GetItemsService) { }
+  constructor(private requestsService: RequestsService) { }
 
   ngOnInit(): void {
-    this.getItemsService.getItems().subscribe(
+    this.requestsService.getItems().subscribe(
       res => this.items = res,
-      err => console.log(`Something went wrong, response status is: ${err.status}.`)
+      err => console.log(err)
     );
   }
 }

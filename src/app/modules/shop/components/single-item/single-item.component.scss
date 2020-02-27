@@ -21,6 +21,7 @@
         line-height: 3rem;
         z-index: 150;
         cursor: pointer;
+        transition: $transition-button;
 
         &:active { transform: scale(0.9); }
     }
@@ -81,7 +82,7 @@
             color: $font-color-add-to-cart;
             background-image: $gradient-add-to-cart;
             position:relative;
-            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+            transition: $transition-button;
             cursor: pointer;
 
             &:active { transform: scale(0.9); }

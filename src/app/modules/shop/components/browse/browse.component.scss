@@ -1,4 +1,5 @@
 @import 'vars';
+@import 'animations';
 
 .title {
     &-container {
@@ -46,8 +47,14 @@
             position: relative;
 
             &:hover {
-                transform: scale(1.05);
+                transform: scale(1.025);
                 z-index: 30;
+
+                & ~ .admin-btn-container > .admin-btn { 
+                    background-position-y: 0%;
+                    border: $border-admin-button-hover;
+                    color: $font-color-admin-button-hover;
+                 }
             }
 
             &-sale::after {
@@ -61,18 +68,44 @@
                 color: $font-color-sale-label;
                 background-image: $gradient-sale;
                 box-shadow: $shadow-sale;
-                z-index: 20;
+                z-index: 10;
                 transform: rotate(15deg);
+                animation: sale-wiggle 10s cubic-bezier(0.075, 0.82, 0.165, 1) 1s infinite;
             }
         }
 
-        .admin-btn-container {
-            position: fixed;
-            bottom: 5%; 
-            right: 5%;
-            display: flex;
-            justify-content: flex-end;
-            z-index: 40;
+        .admin {
+            &-btn-container {
+                position: fixed;
+                bottom: 5%; 
+                right: 5%;
+                display: flex;
+                justify-content: flex-end;
+                z-index: 40;
+            }
+    
+            &-btn {
+                background-image: $admin-button-image;
+                background-size: cover;
+                background-position-y: 100%;
+                border: $border-admin-button;
+                color: $font-color-admin-button;
+                width: 20rem;
+                height: 6rem;
+                letter-spacing: .1rem;
+                font-size: $font-size-admin-button;
+                font-weight: 500;
+                text-align: center;
+                line-height: 5.8rem;
+                cursor: pointer;
+                position: relative;
+                z-index: 100;
+                transition: $transition-button;
+            
+                &:active {
+                    transform: scale(0.9);
+                }
+            }
         }
     }
 }

@@ -20,7 +20,9 @@
                 [singleItem]="item">
             </app-single-item>
 
-            <app-new-item-button class='admin-btn-container'></app-new-item-button>
+            <div class='admin-btn-container'>
+                <a class='admin-btn' [routerLink]="['/admin']">NEW ITEM</a>
+            </div>
         </div>
     </div>
 </div>

@@ -1,15 +1,17 @@
 <div>
-    <h3 class="status"></h3>
     <form [formGroup]="itemForm">
 
-        <p *ngIf="nameControl.invalid && nameControl.dirty" class="warning">Invalid item name.</p>
-        <input formControlName="name" id="name" class="text-input" type="text" placeholder="Item name">
+        <input 
+            formControlName="name" 
+            [ngClass]="nameControl.invalid && nameControl.dirty && nameControl.touched ? 'text-input-warn' : ''" 
+            class="text-input" type="text" placeholder="Item name">
 
-        <p *ngIf="priceControl.invalid && priceControl.dirty" class="warning">Invalid item price.</p>
-        <input formControlName="price" id="price" class="text-input" type="number" placeholder="Item price">
+        <input 
+            formControlName="price" 
+            [ngClass]="priceControl.invalid && priceControl.dirty ? 'text-input-warn' : ''" 
+            class="text-input" type="number" placeholder="Item price">
         
-        <p *ngIf="imageControl.invalid && imageControl.touched" class="warning">Pick an image.</p>
-        <select formControlName="image" id="image">
+        <select formControlName="image">
             <option value="/1.jpg">Grey Sweater</option>
             <option value="/2.jpg">Blue Hoodie</option>
             <option value="/3.jpg">Red Shirt</option>
@@ -22,44 +24,16 @@
             <option value="/10.jpg">Invisible Shirt</option>
         </select>
 
-        <p *ngIf="discountControl.invalid && discountControl.dirty" class="warning">Invalid item discount.</p>
         <div class="discount-container">
             <label for="checkbox">Discount</label>
-            <input class="checkbox" id="checkbox" type="checkbox" [checked]="checkboxChecked">
-            <input formControlName="discount" id="discount" class="discount" type="number" placeholder="Discount in %">
+            <input class="checkbox" type="checkbox" [checked]="checkboxChecked" (change)="checkboxChecked = $event.target.checked">
+            <input 
+                formControlName="discount" 
+                [ngClass]="discountControl.invalid && discountControl.dirty ? 'text-input-warn' : ''" 
+                class="discount" type="number" placeholder="Discount in %">
         </div>
 
         <button class="btn" type="submit" [disabled]="!itemForm.valid" (click)="onFormSubmit()">SAVE</button>
+        <button class="btn-delete" type="submit" [ngClass]="!isEditMode ? 'btn-delete-hidden' : ''" (click)="onDelete()">DELETE</button>
     </form>       
 </div>
-
-
-
-<!-- 
-<div>
-    <h3 class="status"></h3>
-   
-    <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
-        <input formControlName="name" id="name" class="text-input" type="text" name="name" required="required" maxlength="30" placeholder="Item name">
-        <input formControlName="price" id="price" class="text-input" type="number" name="price" min="0" max="9999" required="required" placeholder="Item price">
-        <select formControlName="image" id="image" name="image">
-            <option value="images/1.jpg">Grey Sweater</option>
-            <option value="images/2.jpg">Blue Hoodie</option>
-            <option value="images/3.jpg">Red Shirt</option>
-            <option value="images/4.jpg">Yellow Sweater</option>
-            <option value="images/5.jpg">Dark Grey Sweater</option>
-            <option value="images/6.jpg">White Shirt</option>
-            <option value="images/7.jpg">Blue Shirt</option>
-            <option value="images/8.jpg">Green Shirt</option>
-            <option value="images/9.jpg">Pink Shirt</option>
-            <option value="images/10.jpg">Invisible Shirt</option>
-        </select>
-        <div class="discount-container">
-            <label for="checkbox">Discount</label>
-            <input class="checkbox" id="checkbox" type="checkbox">
-
-            <input formControlName="discount" id="discount" class="discount" type="number" name="discount" min="0" max="99" placeholder="Discount in %">
-        </div>
-        <button class="btn" type="submit">SAVE</button>
-    </form>       
-</div> -->

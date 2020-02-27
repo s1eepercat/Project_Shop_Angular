@@ -11,7 +11,6 @@ import { InputComponent } from '../../components/input/input.component';
 import { SingleItemComponent } from './components/single-item/single-item.component';
 import { BrowseComponent } from '../shop/components/browse/browse.component';
 import { CartComponent } from '../shop/components/cart/cart.component';
-import { NewItemButtonComponent } from './components/new-item-button/new-item-button.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +21,6 @@ import { NewItemButtonComponent } from './components/new-item-button/new-item-bu
     SingleItemComponent,
     BrowseComponent,
     CartComponent,
-    NewItemButtonComponent,
   ],
   imports: [
     CommonModule,
