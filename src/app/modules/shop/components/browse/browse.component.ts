@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestsService } from '../../../../services/requests.service';
 
-import { item } from '../../../../models/item.model';
+import { Item } from '../../../../models/Item.model';
 
 @Component({
   selector: 'app-browse',
@@ -10,11 +10,11 @@ import { item } from '../../../../models/item.model';
 })
 export class BrowseComponent implements OnInit {
 
-  items: item[];
+  items: Item[];
 
   constructor(private requestsService: RequestsService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.requestsService.getItems().subscribe(
       res => this.items = res,
       err => console.log(err)

@@ -3,12 +3,12 @@
 
         <input 
             formControlName="name" 
-            [ngClass]="nameControl.invalid && nameControl.dirty && nameControl.touched ? 'text-input-warn' : ''" 
+            [ngClass]="defaultControls.nameControl.invalid && defaultControls.nameControl.dirty ? 'text-input-warn' : ''" 
             class="text-input" type="text" placeholder="Item name">
 
         <input 
             formControlName="price" 
-            [ngClass]="priceControl.invalid && priceControl.dirty ? 'text-input-warn' : ''" 
+            [ngClass]="defaultControls.priceControl.invalid && defaultControls.priceControl.dirty ? 'text-input-warn' : ''" 
             class="text-input" type="number" placeholder="Item price">
         
         <select formControlName="image">
@@ -26,10 +26,10 @@
 
         <div class="discount-container">
             <label for="checkbox">Discount</label>
-            <input class="checkbox" type="checkbox" [checked]="checkboxChecked" (change)="checkboxChecked = $event.target.checked">
+            <input class="checkbox" type="checkbox" [checked]="isCheckboxChecked" (change)="isCheckboxChecked = $event.target.checked">
             <input 
                 formControlName="discount" 
-                [ngClass]="discountControl.invalid && discountControl.dirty ? 'text-input-warn' : ''" 
+                [ngClass]="defaultControls.discountControl.invalid && defaultControls.discountControl.dirty ? 'text-input-warn' : ''" 
                 class="discount" type="number" placeholder="Discount in %">
         </div>
 

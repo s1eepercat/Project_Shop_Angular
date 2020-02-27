@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { item } from '../../../../models/item.model';
+import { Item } from '../../../../models/item.model';
 
 @Component({
   selector: 'app-single-item',
@@ -9,7 +9,7 @@ import { item } from '../../../../models/item.model';
 })
 export class SingleItemComponent implements OnInit {
 
-  @Input() singleItem: item;
+  @Input() singleItem: Item;
 
   constructor() { }
 

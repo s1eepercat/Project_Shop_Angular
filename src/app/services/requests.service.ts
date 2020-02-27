@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { item } from '../models/item.model';
+import { Item } from '../models/item.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -23,28 +23,28 @@ export class RequestsService {
     return throwError(errorMessage);
   }
 
-  getItems():Observable<item[]> {
-    return this.http.get<item[]>(`${environment.api}items`)
+  getItems():Observable<Item[]> {
+    return this.http.get<Item[]>(`${environment.api}items`)
       .pipe(catchError(this.handleError))
   }
 
-  getItem(id:number):Observable<item[]> {
-    return this.http.get<item[]>(`${environment.api}items?id=${id}`)
+  findItem(id:number):Observable<Item> {
+    return this.http.get<Item>(`${environment.api}items?id=${id}`)
       .pipe(catchError(this.handleError))
   }
 
-  postItem(item: any):Observable<item[]> {
-    return this.http.post<item[]>(`${environment.api}items`,item)
+  createItem(item: any):Observable<Item> {
+    return this.http.post<Item>(`${environment.api}items`,item)
       .pipe(catchError(this.handleError))
   }
 
-  putItem(id: number,item: item):Observable<item[]> {
-    return this.http.put<item[]>(`${environment.api}items?id=${id}`, item)
+  updateItem(id: number,item: Item):Observable<Item> {
+    return this.http.put<Item>(`${environment.api}items?id=${id}`, item)
       .pipe(catchError(this.handleError))
   }
 
-  deleteItem(id: number):Observable<item[]> {
-    return this.http.delete<item[]>(`${environment.api}items?id=${id}`)
+  deleteItem(id: number):Observable<Item> {
+    return this.http.delete<Item>(`${environment.api}items?id=${id}`)
       .pipe(catchError(this.handleError))
   }
 }
