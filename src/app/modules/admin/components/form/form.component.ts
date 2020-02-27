@@ -49,18 +49,18 @@ export class FormComponent implements OnInit {
 
   onDelete() {
     this.requestsService.deleteItem(this.id).subscribe(
-      response => {this.afterSubmitSuccess(response, true)}, 
+      response => this.afterSubmitSuccess(response, true), 
       error => alert(error));
   }
 
   onFormSubmit() {
     if (this.isEditMode) {
       this.requestsService.updateItem(this.id,this.setFormValuesFrom(this.itemForm.value)).subscribe(
-        response => {this.afterSubmitSuccess(response, true)}, 
+        response => this.afterSubmitSuccess(response, true), 
         error => alert(error))
     } else {
       this.requestsService.createItem(this.setFormValuesFrom(this.itemForm.value)).subscribe(
-        response => {this.afterSubmitSuccess(response)}, 
+        response => this.afterSubmitSuccess(response), 
         error => alert(error))
     }
   }
