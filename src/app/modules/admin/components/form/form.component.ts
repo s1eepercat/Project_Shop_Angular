@@ -45,18 +45,18 @@ export class FormComponent implements OnInit {
 
   onDelete(): void {
     this.requestsService.deleteItem(this.id).subscribe(
-      response => {this.announceAndReset(response, true)}, 
+      response => {this.announceAndRedirect(response, true)}, 
       error => alert(error));
   }
 
   onFormSubmit(): void {
     if (this.isEditMode) {
       this.requestsService.putItem(this.id,this.setFormValuesFrom(this.itemForm.value)).subscribe(
-        response => {this.announceAndReset(response, true)}, 
+        response => {this.announceAndRedirect(response, true)}, 
         error => alert(error))
     } else {
       this.requestsService.postItem(this.setFormValuesFrom(this.itemForm.value)).subscribe(
-        response => {this.announceAndReset(response)}, 
+        response => {this.announceAndRedirect(response)}, 
         error => alert(error))
     }
   }
@@ -83,12 +83,12 @@ export class FormComponent implements OnInit {
     return this.id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'),10); 
   }
 
-  announceAndReset(response:any, redirect?: boolean): void {
+  announceAndRedirect(response:any, redirect?: boolean): void {
     alert(response);
     if (redirect) {
-      this.router.navigate(['/shop/browse'])
+      this.router.navigate(['/shop/browse']);
     } else {
-      this.router.navigate(['/admin'])
+      this.router.navigate(['/admin']);
       this.itemForm.reset();
       this.itemForm.controls['image'].setValue('/1.jpg');
     }

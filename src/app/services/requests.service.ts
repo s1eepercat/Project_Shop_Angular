@@ -18,7 +18,7 @@ export class RequestsService {
     if (error.error instanceof ErrorEvent) {
       errorMessage = `Error: ${error.error.message}`;
     } else {
-      errorMessage = `Error code: ${error.status}, Message: ${error.error}.`;
+      errorMessage = `Error code: ${error.status}, ${error.error}.`;
     }
     return throwError(errorMessage);
   }
