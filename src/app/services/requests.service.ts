@@ -28,17 +28,17 @@ export class RequestsService {
       .pipe(catchError(this.handleError))
   }
 
-  findItem(id:number) {
+  findItem(id: number) {
     return this.http.get<Item>(`${environment.api}items?id=${id}`)
       .pipe(catchError(this.handleError))
   }
 
   createItem(item: Item) {
-    return this.http.post<Item>(`${environment.api}items`,item)
+    return this.http.post<Item>(`${environment.api}items`, item)
       .pipe(catchError(this.handleError))
   }
 
-  updateItem(id: number,item: Item) {
+  updateItem(id: number, item: Item) {
     return this.http.put<Item>(`${environment.api}items?id=${id}`, item)
       .pipe(catchError(this.handleError))
   }

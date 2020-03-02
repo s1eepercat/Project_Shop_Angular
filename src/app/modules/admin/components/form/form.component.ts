@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RequestsService } from '../../../../services/requests.service';
 
 import { Image } from '../../../../models/image.model';
+
 import ImageData from '../../../../data/image-data';
 
 @Component({
@@ -16,13 +17,13 @@ export class FormComponent implements OnInit {
   private readonly DEFAULT_IMAGE = "/1.jpg";
   isEditMode = false;
   isCheckboxChecked = false;
-  images = ImageData;
   id: number;
   status: any;
   itemForm: FormGroup;
   imageControl = new FormControl(this.DEFAULT_IMAGE);
   discountControl = new FormControl('', [Validators.min(0), Validators.max(99)]);
   image: Image;
+  images = ImageData;
 
   constructor(
     private formBuilder: FormBuilder,
