@@ -1,4 +1,42 @@
-export class ImageData {
-    values: ['/1.jpg','/2.jpg','/3.jpg','/4.jpg','/5.jpg','/6.jpg','/7.jpg','/8.jpg','/9.jpg','/10.jpg'];
-    names: ['Grey Sweater', 'Blue Hoodie', 'Red Shirt', 'Yellow Sweater', 'Dark Grey Sweater', 'White Shirt', 'Blue Shirt', 'Green Shirt', 'Pink Shirt', 'Invisible Shirt'];
-}
+export default [
+    {
+        value: '/1.jpg',
+        name: 'Grey Sweater'
+    },
+    {
+        value: '/2.jpg',
+        name: 'Blue Hoodie'
+    },
+    {
+        value: '/3.jpg',
+        name: 'Red Shirt'
+    },
+    {
+        value: '/4.jpg',
+        name: 'Yellow Sweater'
+    },
+    {
+        value: '/5.jpg',
+        name: 'Dark Grey Sweater'
+    },
+    {
+        value: '/6.jpg',
+        name: 'White Shirt'
+    },
+    {
+        value: '/7.jpg',
+        name: 'Blue Shirt'
+    },
+    {
+        value: '/8.jpg',
+        name: 'Green Shirt'
+    },
+    {
+        value: '/9.jpg',
+        name: 'Pink Shirt'
+    },
+    {
+        value: '/10.jpg',
+        name: 'Invisible Shirt'
+    },
+];
