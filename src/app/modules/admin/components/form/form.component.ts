@@ -22,8 +22,7 @@ export class FormComponent implements OnInit {
   itemForm: FormGroup;
   imageControl = new FormControl(this.DEFAULT_IMAGE);
   discountControl = new FormControl('', [Validators.min(0), Validators.max(99)]);
-  image: Image;
-  images = ImageData;
+  images: Image[] = ImageData;
 
   constructor(
     private formBuilder: FormBuilder,
