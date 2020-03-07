@@ -1,5 +1,6 @@
 @import 'vars';
 @import 'animations';
+@import 'mquery';
 
 .title {
     &-container {
@@ -40,11 +41,33 @@
         display: flex;
         flex-wrap: wrap;
 
+        &:last-child {
+            @include mquery(phone) {
+                padding-bottom: 2rem;
+            }
+        }
+
         .item {
             padding: .5rem;
-            flex: 0 1 25%;
+            flex: 0 1 20%;
             transition: all .3s;
             position: relative;
+
+            @include mquery(large-desktop) {
+                flex: 0 1 25%;
+            }
+
+            @include mquery(tab-land) {
+                flex: 0 1 33.33%;
+            }
+
+            @include mquery(tab-port) {
+                flex: 0 1 49.99%;
+            }
+
+            @include mquery(phone) {
+                flex: 0 1 100%;
+            }
 
             &:hover {
                 transform: scale(1.025);
@@ -54,7 +77,12 @@
                     background-position-y: 0%;
                     border: $border-admin-button-hover;
                     color: $font-color-admin-button-hover;
-                 }
+
+                    @include mquery(phone) {
+                        border: 2px solid white;
+                        color: white;
+                    }
+                }
             }
 
             &-sale::after {
@@ -104,6 +132,30 @@
             
                 &:active {
                     transform: scale(0.9);
+                }
+
+                @include mquery(phone) {
+                    height: 6rem;
+                    width: 6rem;
+                    border-radius: 100%;
+                    line-height: 3rem;
+                }
+
+                &::after {
+                    @include mquery(phone) {
+                        content: "+";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        width: 100%;
+                        border-radius: 100%;
+                        font-size: 3rem;
+                        font-family: "Times New Roman", Times, serif;
+                        font-weight: bold;
+                        line-height: 5.5rem;
+                        background-image: linear-gradient(90deg, rgba(67,207,177,1) 21%, rgba(46,152,81,1) 100%);
+                    }
                 }
             }
         }

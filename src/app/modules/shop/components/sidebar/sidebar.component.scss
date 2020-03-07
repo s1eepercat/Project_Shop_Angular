@@ -1,38 +1,57 @@
 @import 'vars';
+@import 'mquery';
+
+.container, .input {
+    background-color: $bg-color-aside-section;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.input {
+    @include mquery(desktop) {
+        width: 60%;
+        margin: 0 auto 3rem auto;
+    }
+
+    @include mquery(phone) {
+        width: 100%;
+    }
+}
 
 .container {
-
-    & > * {
-        background-color: $bg-color-aside-section;
-        margin-bottom: 3rem;
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
+    @include mquery(desktop) {
+        width: 48%;
     }
 
-    .title { padding-bottom: 1.5rem; }
-
-    .break {
-        border:none;
-        border-top: $border-aside-break;
-        width:100%;
+    @include mquery(phone) {
+        width: 100%;
     }
+}
 
-    .content {
-        padding-top: 1.5rem;
-        display:flex;
-        flex-direction: column;
+.title { padding-bottom: 1.5rem; }
 
-        & > p {
-            padding: .3rem 0;
-            cursor: pointer;   
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            padding-right: 1rem;
+.break {
+    border:none;
+    border-top: $border-aside-break;
+    width:100%;
+}
 
-            &:hover { color: $font-color-hover; }
-        }
+.content {
+    padding-top: 1.5rem;
+    display:flex;
+    flex-direction: column;
+
+    & > p {
+        padding: .3rem 0;
+        cursor: pointer;   
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-right: 1rem;
+
+        &:hover { color: $font-color-hover; }
     }
 }
