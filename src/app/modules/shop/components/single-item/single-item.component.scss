@@ -37,6 +37,7 @@
         & > img {
             opacity: 0.8;
             width: 110%;
+            mix-blend-mode: multiply;
         }
     }
 
@@ -61,7 +62,7 @@
         
             .price {
                 margin: 0 auto;
-                padding: 0 1rem;
+                padding: 0 0.5rem;
     
                 &-onsale {
                     order: 0;

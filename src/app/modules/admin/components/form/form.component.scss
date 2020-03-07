@@ -1,10 +1,15 @@
 @import 'vars';
+@import 'mquery';
 
 form {
     padding-top: 4rem;
     display: flex;
     flex-direction: column;
     width: 40rem;
+
+    @include mquery(phone) {
+        width: 30rem;
+    }
 
     .text-input {
         padding: 1.5rem 1.5rem;
@@ -21,6 +26,7 @@ form {
         padding: 1.5rem 1.5rem;
         margin: 1rem;
         font-size: 1.5rem;
+        
     }
 
     .discount-container {

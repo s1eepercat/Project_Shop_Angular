@@ -1,4 +1,5 @@
 @import 'vars';
+@import 'mquery';
 
 section {
     background-image: $background-image;
@@ -12,22 +13,42 @@ section {
         padding-top: 2.5rem;
         margin: 0 auto;
 
-        main {
-            display: flex;
+        @include mquery(desktop) {
             flex-direction: column;
+        }
+
+        @include mquery(phone) {
+            width: 100%;
+            padding-top: 0;
+        }
+
+        main {
             width: 100%;
             background-color: $bg-color-main-section;
             opacity: 0.95;
             z-index: 10;
         }
 
-        aside {
+        .sidebar {
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             width: 32rem;
             margin-left: 3rem;
             opacity: 0.95;    
+
+            @include mquery(desktop) {
+                margin-top: 3rem;
+                margin-left: 0;
+                width: 100%;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            @include mquery(phone) {
+                padding: 0 2rem;
+            }
         }
     }
 }

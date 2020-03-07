@@ -1,5 +1,6 @@
 @import 'vars';
 @import 'animations';
+@import 'mquery';
 
 .container {
     display: flex;
@@ -11,6 +12,10 @@
     background-position-y: 0%;
 
     animation: header-scroll 100s linear infinite;
+
+    @include mquery(phone) {
+        height: 6rem;
+    }
 
     .nav {
         height: 6rem;
@@ -26,6 +31,11 @@
             margin: 0 auto;
             list-style-type: none;
 
+            @include mquery(phone) {
+                width: 100%;
+                justify-content: space-evenly;
+            }
+
             &-item {
                 width: 100%;
                 text-align: center;
@@ -35,6 +45,10 @@
                 position: relative;
                 overflow: hidden;
                 transition: $transition-button;
+
+                @include mquery(phone) {
+                    width: 10rem;
+                }
 
                 &:active { transform: scale(0.9); }
                 

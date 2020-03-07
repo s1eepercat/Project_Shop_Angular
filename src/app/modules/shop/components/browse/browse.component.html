@@ -14,10 +14,8 @@
     <div class="items-container">
         <div class="content">
 
-            <app-single-item class="item"
-                *ngFor="let Item of items" 
-                [ngClass] = "(Item.discount ? 'item-sale' : '')"
-                [singleItem]="Item">
+            <app-single-item class="item" *ngFor="let item of items" [ngClass]="(item.discount ? 'item-sale' : '')"
+                [singleItem]="item">
             </app-single-item>
 
             <div class='admin-btn-container'>
